@@ -109,7 +109,6 @@ header {
   grid-area: header;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 42px;
   border-bottom: 1px solid #00bfa5;
 }
@@ -187,10 +186,6 @@ main #pdf-text-layer {
   left: 0;
 }
 
-.tags {
-  grid-area: tags;
-}
-
 .documents {
   grid-area: documents;
 }
@@ -245,7 +240,7 @@ main #pdf-text-layer {
   padding: 5px 0;
 }
 .tag-value {
-  background-color: 5px;
+  background-color: #B0BEC5;
   border-radius: 0 4px 4px 0;
 }
 
@@ -277,6 +272,34 @@ main #pdf-text-layer {
   padding: 5px;
 }
 .list-tag .tag-icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin: 5px;
+}
+
+.tags {
+  grid-area: tags;
+  border: 1px solid #607D8B;
+  border-top: none;
+  border-bottom: none;
+}
+.tags #collapse-tags {
+  background-color: #B0BEC5;
+}
+.tags .tag {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #607D8B;
+  border-radius: 0;
+}
+.tags .tag-text {
+  padding: 5px;
+}
+.tags .tag-icon {
   flex-shrink: 0;
   flex-grow: 0;
   margin: 5px;
