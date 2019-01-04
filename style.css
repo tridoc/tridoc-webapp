@@ -125,7 +125,33 @@ body {
 }
 .main #current-title[contenteditable=true]:empty::before {
   font-style: italic;
-  content: "Title";
+  content: "Add a Title";
+}
+.main #current-tags-container {
+  padding: 12px;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 1em;
+  border: 1px solid #5df2d6;
+}
+.main #current-tags-container input {
+  outline: none;
+  width: auto;
+  border: 0;
+  float: left;
+  padding: 8px;
+  background: none;
+}
+.main #current-tags-container::before {
+  content: "";
+  display: table;
+}
+.main #current-tags-container::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .main .comments {
   grid-area: comments;
@@ -212,13 +238,22 @@ body {
 }
 
 .tag {
-  align-items: center;
-  width: unset;
-  display: inline-flex;
-  padding: 2px;
-  border-radius: 6px;
-  background-color: #ECEFF1;
-  margin-right: 4px;
+  border-radius: 3px;
+  background: #ECEFF1;
+  float: left;
+  margin: 3px;
+  padding: 4px;
+  font-size: 1em;
+  vertical-align: middle;
+  box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+}
+.tag a {
+  color: #000;
+  padding-right: 10px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 5px;
 }
 .tag:last-of-type {
   margin-right: 0;
@@ -226,10 +261,10 @@ body {
 .tag-icon {
   height: 18px;
   width: 18px;
+  color: #000;
 }
 .tag-text, .tag-value {
-  height: 18px;
-  padding: 0 4px;
+  padding: 5px 0;
 }
 .tag-value {
   background-color: #B0BEC5;
