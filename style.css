@@ -120,6 +120,13 @@ body {
   grid-area: header;
   height: 128px;
 }
+.main #current-title[contenteditable=true] {
+  border-bottom: 1px solid #008e76;
+}
+.main #current-title[contenteditable=true]:empty::before {
+  font-style: italic;
+  content: "Title";
+}
 .main .comments {
   grid-area: comments;
   display: none;
