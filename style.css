@@ -112,13 +112,23 @@ body {
   grid-area: main;
   display: grid;
   height: 100%;
-  grid-template-columns: 100fr 0;
-  grid-template-rows: 128px auto;
+  grid-template-columns: 100fr 200px;
+  grid-template-rows: fit-content auto;
   grid-template-areas: "header header" "document comments";
+}
+@media (max-width: 700px) {
+  .main {
+    grid-template-columns: 100fr 150px;
+  }
+}
+@media (max-width: 450px) {
+  .main {
+    grid-template-columns: 100fr 90px;
+  }
 }
 .main .title {
   grid-area: header;
-  height: 128px;
+  height: fit-content;
 }
 .main #current-title[contenteditable=true] {
   border-bottom: 1px solid #008e76;
@@ -155,15 +165,11 @@ body {
 }
 .main .comments {
   grid-area: comments;
-  display: none;
   border-left: 1px solid #00bfa5;
 }
 .main #document {
   grid-area: document;
   position: relative;
-  height: calc(100vh - (42px + 128px + 42px));
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 .main .pdf-canvas {
   border-bottom: 1px solid #5df2d6;
@@ -189,13 +195,6 @@ body {
 .documents {
   border-right: 1px solid #00bfa5;
 }
-.tags .list,
-.documents .list {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: calc(100vh - 126px);
-}
-
 .footer {
   height: 42px;
   grid-area: footer;
@@ -203,7 +202,6 @@ body {
 }
 
 .box {
-  height: 42px;
   min-height: 42px;
   width: 100%;
   padding: 12px;
@@ -211,30 +209,6 @@ body {
 }
 .box-flexible {
   height: unset;
-}
-
-.list {
-  list-style: none;
-}
-.list-item {
-  height: 42px;
-  min-height: 42px;
-  width: 100%;
-  padding: 12px;
-  border-bottom: 1px solid #5df2d6;
-}
-.list-item:last-child {
-  border-bottom: none;
-}
-.list-item-flexible {
-  height: unset;
-}
-
-.input {
-  border: 1px solid #008e76;
-  width: 100%;
-  background-color: #5df2d6;
-  border-radius: 0;
 }
 
 .tag {
@@ -271,6 +245,36 @@ body {
   border-radius: 0 4px 4px 0;
 }
 
+.list {
+  list-style: none;
+}
+.list-item {
+  width: 100%;
+  padding: 12px;
+  border-bottom: 1px solid #5df2d6;
+}
+.list-item:last-child {
+  border-bottom: none;
+}
+.list-item-flexible {
+  height: unset;
+}
+.list-tag {
+  width: 100%;
+  padding: 2px;
+  margin: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #607D8B;
+  border-radius: 0;
+}
+
+.input {
+  border: 1px solid #008e76;
+  width: 100%;
+  background-color: #5df2d6;
+  border-radius: 0;
+}
+
 .loader {
   font-size: 10px;
   margin: 60px auto;
@@ -296,6 +300,7 @@ body {
   height: 100px;
 }
 .loader-small, .loader-small:after {
+  display: inline-block;
   border-radius: 50%;
   width: 18px;
   height: 18px;
