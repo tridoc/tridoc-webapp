@@ -85,8 +85,8 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: auto 200px 100fr;
-  grid-template-rows: 42px 100fr 42px;
-  grid-template-areas: "header header header" "tags documents main" "footer footer footer";
+  grid-template-rows: auto;
+  grid-template-areas: "tags documents main";
 }
 @media (max-width: 700px) {
   .grid {
@@ -103,6 +103,7 @@ header {
   padding: 12px;
   grid-area: header;
   display: flex;
+  display: none;
   align-items: center;
   height: 42px;
   border-bottom: 1px solid #00bfa5;
@@ -166,14 +167,18 @@ main #current-tags-container::after {
 main .comments {
   border-left: 1px solid #00bfa5;
 }
+main #document-wrapper {
+  padding: 10px;
+}
 main #document {
   position: relative;
+  max-width: 200mm;
+  margin: 0 auto;
 }
 main .pdf-canvas {
-  border-bottom: 1px solid #5df2d6;
-}
-main .pdf-canvas:last-of-type {
-  border-bottom: none;
+  box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+  margin-bottom: 5px;
+  display: block;
 }
 main #pdf-text-layer {
   position: absolute;
@@ -190,6 +195,7 @@ main #pdf-text-layer {
   border-right: 1px solid #00bfa5;
 }
 .footer {
+  display: none;
   height: 42px;
   grid-area: footer;
   border-top: 1px solid #00bfa5;
@@ -303,7 +309,7 @@ main #pdf-text-layer {
 .sidebar__collapsed .sidebar-button-icon {
   flex-shrink: 0;
   flex-grow: 0;
-  margin: 0;
+  margin-right: 0;
 }
 .sidebar__collapsed .list {
   display: none;
@@ -329,11 +335,12 @@ main #pdf-text-layer {
 .sidebar-button-icon {
   flex-shrink: 0;
   flex-grow: 0;
+  margin: calc((48px - (24px + (2*8px)))/2);
   margin-right: 8px;
 }
 .sidebar-button-icon, .sidebar-button-icon svg {
-  height: calc(48px - (2 *8px));
-  width: calc(48px - (2 *8px));
+  height: 24px;
+  width: 24px;
   fill: #008e76;
 }
 .sidebar .tag {
