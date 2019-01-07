@@ -81,6 +81,15 @@ body {
   fill: #c43c00;
 }
 
+.sticky-top {
+  position: sticky;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 1px solid #ECEFF1;
+  margin-bottom: 5px;
+  top: 0;
+}
+
 .grid {
   display: grid;
   height: 100vh;
@@ -111,6 +120,9 @@ header {
 
 main {
   grid-area: main;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 main .main-grid {
   display: grid;
@@ -285,12 +297,19 @@ main #pdf-text-layer {
 .sidebar {
   border-right: 1px solid #ECEFF1;
   padding: 5px 5px 0;
+  padding-top: 0;
   width: 200px;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   /*
   @media (max-width: $_xs) {
     width: $list-w_xs;
   }
   */
+}
+.sidebar > *:first-child {
+  padding-top: 5px;
 }
 @media (max-width: 700px) {
   .sidebar {
@@ -298,6 +317,7 @@ main #pdf-text-layer {
   }
 }
 .sidebar__collapsed {
+  overflow-y: hidden;
   width: calc(48px + (2*5px 5px 0));
 }
 .sidebar__collapsed .sidebar-button {
@@ -346,7 +366,7 @@ main #pdf-text-layer {
   width: 24px;
   fill: #008e76;
 }
-.sidebar .tag {
+.sidebar-tag {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -357,10 +377,10 @@ main #pdf-text-layer {
   box-shadow: none;
   border-radius: 0;
 }
-.sidebar .tag-text {
+.sidebar-tag-text {
   padding: 5px;
 }
-.sidebar .tag-icon {
+.sidebar-tag-icon {
   flex-shrink: 0;
   flex-grow: 0;
   margin: 5px;
@@ -375,6 +395,7 @@ main #pdf-text-layer {
   margin: 0;
   margin-bottom: 5px;
   border: 1px solid #ECEFF1;
+  background-color: #fff;
   border-radius: calc(48px/4);
 }
 .input:focus, .input:focus-within, .input:hover {
