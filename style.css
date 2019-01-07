@@ -84,24 +84,18 @@ body {
 .grid {
   display: grid;
   height: 100vh;
-  grid-template-columns: 200px 200px 100fr;
+  grid-template-columns: auto 200px 100fr;
   grid-template-rows: 42px 100fr 42px;
   grid-template-areas: "header header header" "tags documents main" "footer footer footer";
 }
-.grid.tags-collapsed {
-  grid-template-columns: 0 200px 100fr;
-}
-.grid.tags-collapsed .tags {
-  display: none;
-}
 @media (max-width: 700px) {
   .grid {
-    grid-template-columns: 150px 150px 100fr;
+    grid-template-columns: auto 150px 100fr;
   }
 }
 @media (max-width: 450px) {
   .grid {
-    grid-template-columns: 90px 90px 100fr;
+    grid-template-columns: auto 90px 100fr;
   }
 }
 
@@ -278,29 +272,85 @@ main #pdf-text-layer {
   margin: 5px;
 }
 
-.tags {
+.sidebar {
+  z-index: 800;
   grid-area: tags;
-  border: 1px solid #607D8B;
-  border-top: none;
-  border-bottom: none;
+  border: none;
+  padding: 5px 5px 0;
+  width: 200px;
+  box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+  /*
+  @media (max-width: $_xs) {
+    width: $list-w_xs;
+  }
+  */
 }
-.tags #collapse-tags {
-  background-color: #B0BEC5;
+@media (max-width: 700px) {
+  .sidebar {
+    width: 150px;
+  }
 }
-.tags .tag {
+.sidebar__collapsed {
+  width: calc(48px + (2*5px 5px 0));
+}
+.sidebar__collapsed .sidebar-button {
+  width: 48px;
+  height: 48px;
+}
+.sidebar__collapsed .sidebar-button-text {
+  display: none;
+}
+.sidebar__collapsed .sidebar-button-icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin: 0;
+}
+.sidebar__collapsed .list {
+  display: none;
+}
+.sidebar-button {
   display: flex;
   align-items: center;
   width: 100%;
+  min-height: 48px;
+  padding: 8px;
+  margin: 0;
+  margin-bottom: 5px;
+  box-shadow: none;
+  border-radius: calc(48px/2);
+}
+.sidebar-button:focus, .sidebar-button:hover {
+  background-color: #5df2d6;
+}
+.sidebar-button-text {
+  padding: 5px;
+  font-size: 18px;
+}
+.sidebar-button-icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 8px;
+}
+.sidebar-button-icon, .sidebar-button-icon svg {
+  height: calc(48px - (2 *8px));
+  width: calc(48px - (2 *8px));
+  fill: #008e76;
+}
+.sidebar .tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   padding: 0;
   margin: 0;
+  margin-bottom: 5px;
   box-shadow: none;
-  border-bottom: 1px solid #607D8B;
   border-radius: 0;
 }
-.tags .tag-text {
+.sidebar .tag-text {
   padding: 5px;
 }
-.tags .tag-icon {
+.sidebar .tag-icon {
   flex-shrink: 0;
   flex-grow: 0;
   margin: 5px;
