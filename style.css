@@ -178,7 +178,11 @@ main #current-tags-container::after {
   clear: both;
 }
 main .comments {
-  border-left: 1px solid #00bfa5;
+  border-left: 1px solid #ECEFF1;
+  border-right: none;
+  height: fit-content;
+  position: absolute;
+  right: 0;
 }
 main #document-wrapper {
   padding: 10px;
@@ -295,13 +299,15 @@ main #pdf-text-layer {
 }
 
 .sidebar {
+  position: relative;
+  background-color: #fff;
   border-right: 1px solid #ECEFF1;
   padding: 5px 5px 0;
   padding-top: 0;
   width: 200px;
   height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
   /*
   @media (max-width: $_xs) {
     width: $list-w_xs;
@@ -316,6 +322,10 @@ main #pdf-text-layer {
     width: 150px;
   }
 }
+.sidebar .list {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
 .sidebar__collapsed {
   overflow-y: hidden;
   width: calc(48px + (2*5px 5px 0));
@@ -323,6 +333,9 @@ main #pdf-text-layer {
 .sidebar__collapsed .sidebar-button {
   width: 48px;
   height: 48px;
+}
+.sidebar__collapsed .sidebar-button-rotate .sidebar-button-icon {
+  transform: rotate(180deg);
 }
 .sidebar__collapsed .sidebar-button-text {
   display: none;
@@ -332,7 +345,7 @@ main #pdf-text-layer {
   flex-grow: 0;
   margin-right: 0;
 }
-.sidebar__collapsed .list {
+.sidebar__collapsed .list * {
   display: none;
 }
 .sidebar-button {
@@ -352,6 +365,9 @@ main #pdf-text-layer {
   border-color: #008e76;
   outline: none;
 }
+.sidebar-button-rotate .sidebar-button-icon {
+  transition: transform 0.5s ease-in-out;
+}
 .sidebar-button-text {
   font-size: 18px;
 }
@@ -366,6 +382,14 @@ main #pdf-text-layer {
   width: 24px;
   fill: #008e76;
 }
+.sidebar .sticky-bottom {
+  justify-self: end;
+  z-index: 1000;
+  background-color: #fff;
+  border-top: 1px solid #ECEFF1;
+  margin-top: 5px;
+  padding-top: 5px;
+}
 .sidebar-tag {
   display: flex;
   align-items: center;
@@ -377,10 +401,10 @@ main #pdf-text-layer {
   box-shadow: none;
   border-radius: 0;
 }
-.sidebar-tag-text {
+.sidebar-tag .tag-text {
   padding: 5px;
 }
-.sidebar-tag-icon {
+.sidebar-tag .tag-icon {
   flex-shrink: 0;
   flex-grow: 0;
   margin: 5px;
@@ -456,6 +480,26 @@ main #pdf-text-layer {
     transform: rotate(360deg);
   }
 }
+#settings-popup {
+  bottom: 0;
+  left: 0;
+  width: 200px;
+}
+
+.popup {
+  position: absolute;
+  z-index: 2000;
+  background-color: white;
+  border: 1px solid #ECEFF1;
+  border-radius: 12px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+}
+.popup > *:last-child {
+  margin-bottom: 0;
+}
+
 .hidden {
   display: none;
 }
