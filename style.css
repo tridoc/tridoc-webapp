@@ -214,6 +214,7 @@ main #pdf-text-layer {
 .documents {
   border-right: 1px solid #00bfa5;
 }
+
 .footer {
   display: none;
   height: 42px;
@@ -300,6 +301,7 @@ main #pdf-text-layer {
 
 .sidebar {
   position: relative;
+  top: 0;
   background-color: #fff;
   border-right: 1px solid #ECEFF1;
   padding: 5px 5px 0;
@@ -328,7 +330,7 @@ main #pdf-text-layer {
 }
 .sidebar__collapsed {
   overflow-y: hidden;
-  width: calc(48px + (2*5px 5px 0));
+  width: calc(48px + (2*5px));
 }
 .sidebar__collapsed .sidebar-button {
   width: 48px;
@@ -344,6 +346,9 @@ main #pdf-text-layer {
   flex-shrink: 0;
   flex-grow: 0;
   margin-right: 0;
+}
+.sidebar__collapsed .list {
+  overflow: hidden;
 }
 .sidebar__collapsed .list * {
   display: none;
