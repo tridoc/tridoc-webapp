@@ -10,6 +10,7 @@
   font-style: normal;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   border-collapse: collapse;
+  color: #333333;
 }
 
 html {
@@ -231,38 +232,46 @@ main #pdf-text-layer {
   height: unset;
 }
 
+.s__th {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .tag {
+  display: flex;
+  align-items: center;
   border-radius: 3px;
   background: #ECEFF1;
-  float: left;
   margin: 3px;
-  padding: 4px;
+  padding: 0;
   font-size: 1em;
+  min-height: calc(18px + 2 * 5px);
   vertical-align: middle;
-  box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
-}
-.tag a {
-  color: #000;
-  padding-right: 10px;
-  padding-left: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-right: 5px;
 }
 .tag:last-of-type {
   margin-right: 0;
+}
+.tag-icon {
+  margin: 5px;
 }
 .tag-icon, .tag-icon svg {
   height: 18px;
   width: 18px;
   fill: #607D8B;
 }
+.tag-remove {
+  display: none;
+}
+.tag:hover .tag-remove {
+  display: unset;
+}
 .tag-text, .tag-value {
-  padding: 5px 0;
+  word-break: break-all;
+  padding: 5px;
 }
 .tag-value {
-  background-color: #B0BEC5;
-  border-radius: 0 4px 4px 0;
+  border-radius: 4px;
+  font-style: italic;
 }
 
 .list {
@@ -403,8 +412,6 @@ main #pdf-text-layer {
   padding-top: 5px;
 }
 .sidebar-tag {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 0;
