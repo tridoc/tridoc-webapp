@@ -7,8 +7,9 @@
   border: none;
   list-style: none;
   text-align: start;
-  border-collapse: collapse;
+  font-style: normal;
   font-family: Roboto, Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
 }
 
 html {
@@ -181,8 +182,6 @@ main .comments {
   border-left: 1px solid #ECEFF1;
   border-right: none;
   height: fit-content;
-  position: absolute;
-  right: 0;
 }
 main #document-wrapper {
   padding: 10px;
@@ -387,7 +386,15 @@ main #pdf-text-layer {
   width: 24px;
   fill: #008e76;
 }
-.sidebar .sticky-bottom {
+.sidebar-top {
+  justify-self: start;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 1px solid #ECEFF1;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+.sidebar-bottom {
   justify-self: end;
   z-index: 1000;
   background-color: #fff;
