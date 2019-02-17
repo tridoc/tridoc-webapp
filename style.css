@@ -502,7 +502,31 @@ main #pdf-text-layer {
 #settings-popup {
   bottom: 0;
   left: 0;
-  width: 200px;
+  width: calc(2*200px);
+}
+#settings-popup h1,
+#settings-popup h2,
+#settings-popup p {
+  text-align: center;
+}
+#settings-popup .settings-columns,
+#settings-popup #settings-footer {
+  display: flex;
+}
+#settings-popup .settings-columns > *,
+#settings-popup #settings-footer > * {
+  flex: 1;
+}
+#settings-popup .settings-columns .vertical-spacer,
+#settings-popup #settings-footer .vertical-spacer {
+  margin: 0 5px;
+  flex: 0;
+  border-left: 1px solid #ECEFF1;
+  width: 1px;
+}
+#settings-popup .settings-columns .vertical-spacer.invisible,
+#settings-popup #settings-footer .vertical-spacer.invisible {
+  border-left-color: transparent;
 }
 
 .popup {
